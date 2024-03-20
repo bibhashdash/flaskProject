@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import unittest
+import math
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -56,22 +56,6 @@ class RoadBikes(Bike):
 
 bibhash_bike = RoadBikes("Scott", "Speedster", 54, False)
 print(bibhash_bike)
-
-
-class BallVector:
-
-    def __init__(self, x: int, y: int):
-        self.x = x
-        self.y = y
-
-    def __sub__(self, other):
-        vector_difference = BallVector(self.x - other.x, self.y - other.y)
-        return vector_difference
-
-
-vector1 = BallVector(3, 5)
-vector2 = BallVector(1, 2)
-print(vector2 - vector1)
 
 
 @app.route('/', methods=['POST', 'GET'])
