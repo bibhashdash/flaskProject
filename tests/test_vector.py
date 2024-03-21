@@ -7,6 +7,7 @@ correct_answer = BallVector(1280, 900)
 user_input_close = BallVector(1190, 800)
 user_input_far = BallVector(1000, 600)
 user_input_equal = BallVector(1280, 900)
+user_input_negative = BallVector(-1190, -800)
 
 
 class TestBallVector(unittest.TestCase):
@@ -22,6 +23,12 @@ class TestBallVector(unittest.TestCase):
     def test_result_far(self):
         result = print_result(user_input_far, correct_answer)
         expected_output = 'You need to practice more!'
+
+        self.assertEqual(result, expected_output)
+
+    def test_result_negative(self):
+        result = print_result(user_input_negative, correct_answer)
+        expected_output = 'Invalid input please enter only positive values'
 
         self.assertEqual(result, expected_output)
 
